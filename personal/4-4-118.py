@@ -1,4 +1,6 @@
-
+"""
+-- Implement for simulation --
+"""
 row,column=map(int,input().split()) 
 current_x,current_y,dir=map(int,input().split())
 
