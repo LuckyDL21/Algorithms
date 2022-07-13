@@ -1,17 +1,3 @@
-"""
-
-1475.py - door number
-
-N은 1,000,000보다 작거나 같은 자연수
-
-to do: 1234566999 --> 3개
-       12345999   --> 2개
-
-
-key point: dictionary !! 
-
-"""
-
 N=input()
 set_list=[num for num in range(0,10)]
 freq=dict()
