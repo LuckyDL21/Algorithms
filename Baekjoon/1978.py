@@ -2,7 +2,6 @@
 1978.py - 소수 찾기 
 
 Time: 15 minutes
-
 """
 N=int(input())
 
