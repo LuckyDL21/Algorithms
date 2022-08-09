@@ -1,10 +1,3 @@
-"""
-10828.py
-
-stdin.readline()해야 시간초과안됨
-대신 개행문자까지 포함된다. 
-
-"""
 from collections import deque
 from sys import stdin
 
