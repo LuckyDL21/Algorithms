@@ -26,7 +26,6 @@ def dij(start):
       print(f'Problem {count}: {cost_list[now_node[0]][now_node[1]]}')
       break
     
-      
     for idx in range(4):
       move_x=now_node[0]+dx[idx]
       move_y=now_node[1]+dy[idx]
