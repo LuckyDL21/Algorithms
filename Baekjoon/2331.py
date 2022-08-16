@@ -1,6 +1,7 @@
 """
+2331.py -- 반복수열
 
-2331
+queue
 
 """
 from collections import deque
