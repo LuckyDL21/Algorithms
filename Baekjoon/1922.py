@@ -10,21 +10,6 @@ kruscal algorithms
 재귀
 """
 
-"""
-1922
-
-python sorted - lambda 
-
-kruscal algorithms
-
-부모를 찾는 함수필요
-
-재귀
-"""
-from collections import defaultdict
-import numpy as np
-from collections import deque
-
 N=int(input()) ## node
 M=int(input())
 
@@ -50,7 +35,6 @@ cost=0
 cost_node_info=[]
 
 for standard in graph_info:
-  #standard=graph_info.popleft()
   left=find_parent(standard[0])
   right=find_parent(standard[1])
   if left!=right:
