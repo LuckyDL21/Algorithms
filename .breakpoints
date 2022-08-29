@@ -1,29 +1,37 @@
 {
   "files": {
+    "Programmers/이상한문자만들기.py": [
+      {
+        "id": "fa61bf72-05cb-47b7-8839-f8b9dcef3fe4",
+        "line": 5,
+        "version": 62,
+        "index": 37
+      }
+    ],
     "main.py": [
       {
         "id": "caefe4c9-081a-46b5-b4b0-9667feb72d8c",
         "line": 1,
-        "version": 58444,
+        "version": 60885,
         "index": 0
       },
       {
         "id": "e1ab6fbb-16d5-4727-bbc1-a5956b28d93f",
         "line": 1,
-        "version": 58444,
+        "version": 60885,
         "index": 0
       },
       {
         "id": "9cfc1431-7a18-4535-9151-726975939728",
         "line": 1,
-        "version": 58444,
+        "version": 60885,
         "index": 0
       },
       {
         "id": "19833d1d-f2ed-499a-83a6-e491cacb79c2",
-        "line": 20,
-        "version": 59288,
-        "index": 282
+        "line": 24,
+        "version": 60885,
+        "index": 230
       }
     ]
   }

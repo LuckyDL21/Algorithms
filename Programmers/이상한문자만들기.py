@@ -1,3 +1,10 @@
+"""
+대문자화 -- upper()
+소문자화 -- lower()
+
+
+"""
+
 def solution(s):
     word_list=list(s.split(' '))
     change_list=[]
