@@ -8,8 +8,8 @@ graph_info=[]
 
 for _ in range(paths):
   
-  new_info=list(map(int,input().split())) ### node1,node2, weight
-  graph_info.append(new_info)
+  a,b,c=(map(int,input().split())) ### node1,node2, weight
+  graph_info.append([c,a,b])
 
 
 parent_list=[i for i in range(0,node+1)]
@@ -31,14 +31,14 @@ def union(node_a,node_b):
 graph_info=sorted(graph_info,key=lambda x:x[2])
 
 check_list=[]
+cost=0
 
-for left,right,weight in graph_info:
+for weight,left,right in graph_info:
   if find_parent(left)!=find_parent(right):
     union(left,right)
+    cost+=weight
     check_list.append(weight)
-  else:
-    continue
 
-overall_cost=sum(check_list[:-1])
+cost=cost-check_list.pop()
 
-print(overall_cost)  
+print(cost)  
