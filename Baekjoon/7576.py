@@ -21,13 +21,16 @@
 
 주의 1이 여러개 있는 상태임이 핵심이다. 
 
+exit(0) --> 코드 강제종료
+
+result-1 헤줘야 
+
 """
 
 from collections import deque
 
 ## 일단 코드 막짜보기, 시작점이 여러개이기 때문에 동시에 움직이는 것을 고려해야할 것 같음 
 
-## 이건 큐가 아니라, 무한 반복문을 ㅇ
 
 M,N=map(int,input().split()) ## row, column 
 
@@ -39,6 +42,8 @@ map_info=[[int(x) for x in input().split()] for i in range(N)]
 
 
 q=deque([])
+
+## 처음 저장해야 
 
 for i in range(N):
   for j in range(M):
@@ -58,7 +63,7 @@ def bfs():
       new_x=x+dx[move]
       new_y=y+dy[move]
       if 0<=new_x<N and 0<=new_y<M and map_info[new_x][new_y]==0:
-        map_info[new_x][new_y]=map_info[x][y]+1
+        map_info[new_x][new_y]=map_info[x][y]+1 ## 기존값 +=1
         q.append([new_x,new_y])
       
 bfs()
