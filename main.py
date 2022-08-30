@@ -1,75 +1,40 @@
-"""
-7576.py
+import sys
+sys.setrecursionlimit(10**6)
 
-6 4
-0 0 0 0 0 0
-0 0 0 0 0 0
-0 0 0 0 0 0
-0 0 0 0 0 1   --> 8
+def cal_queue(queue):
+    result = queue[0]
+    for i in range(0, len(queue)-2, 2):
+        post = queue[i+2]
+        result = cal_nums(result, post, queue[i+1])
+    return result
 
-6 4
-0 -1 0 0 0 0
--1 0 0 0 0 0
-0 0 0 0 0 0
-0 0 0 0 0 1  --> -1
+def cal_nums(pre: int, post: int, op: str) -> int:
+    if op == "+":
+        return pre + post
+    elif op == "-":
+        return pre - post
+    else:
+        return pre * post
 
-6 4
-1 -1 0 0 0 0
-0 -1 0 0 0 0
-0 0 0 0 -1 0
-0 0 0 0 -1 1  --> 6
+def insert_bracket(i, q):
+    if i == n-1:
+        no_br = q + [f[i]]
+        return cal_queue(no_br)
+    if i == n-3: # 한 번 더 갈 수 있음
+        no_br = q + [f[i], f[i+1]]
+        temp = cal_nums(f[i], f[i+2], f[i+1])
+        br = q + [temp]
+        return max(insert_bracket(i+2, no_br), cal_queue(br))
 
-주의 1이 여러개 있는 상태임이 핵심이다. 
+    # 안 넣는 경우
+    no_br = q + [f[i], f[i+1]]
+    # 넣는 경우
+    temp = cal_nums(f[i], f[i+2], f[i+1])
+    br = q + [temp, f[i+3]]
 
-"""
+    return max(insert_bracket(i+2, no_br), insert_bracket(i+4, br))
 
-from collections import deque
+n = int(sys.stdin.readline().strip())
+f = [int(x) if x != "+" and x != "-" and x != "*" else x for x in sys.stdin.readline().strip()]
 
-## 일단 코드 막짜보기, 시작점이 여러개이기 때문에 동시에 움직이는 것을 고려해야할 것 같음 
-
-## 이건 큐가 아니라, 무한 반복문을 ㅇ
-
-M,N=map(int,input().split()) ## row, column 
-
-### change row, column ex> 접근 4 6으로 해야함 
-
-result=0
-
-map_info=[[int(x) for x in input().split()] for i in range(N)]
-
-
-q=deque([])
-
-for i in range(N):
-  for j in range(M):
-    if map_info[i][j]==1:
-      q.append([i,j])
-
-## 상 하 좌 우 
-dx=[0,0,-1,1]
-dy=[1,-1,0,0]
-
-## N: row M: column
-
-def bfs():
-  while q:
-    x,y=q.popleft()
-    for move in range(4):
-      new_x=x+dx[move]
-      new_y=y+dy[move]
-      if 0<=new_x<N and 0<=new_y<M and map_info[new_x][new_y]==0:
-        map_info[new_x][new_y]=map_info[x][y]+1
-        q.append([new_x,new_y])
-      
-bfs()
-
-
-for sub in map_info:
-  for j in sub:
-    if j==0:
-      print(-1)
-      exit(0)
-
-  result=max(result,max(sub))
-
-print(result-1)
+print(insert_bracket(0, []))
