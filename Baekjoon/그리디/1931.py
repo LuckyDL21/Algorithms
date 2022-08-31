@@ -23,8 +23,6 @@ for i in range(N):
 all_info.sort(key=lambda x:x[0])
 all_info.sort(key=lambda x:x[1])
 
-print(all_info)
-
 
 #### 제일앞
 count=1

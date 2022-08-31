@@ -8,12 +8,10 @@ from collections import deque
 
 T=int(sys.stdin.readline().strip()) ## 맵반복
 
-
 ## 가로길이,세로길이,배추가 심어져있는 위치 
 
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
-
 
 def bfs(map_info,a,b):
   queue=deque([])
